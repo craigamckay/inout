@@ -24,7 +24,7 @@ $auth = new OutboardAuth();
 $ob   = new OutboardDatabase();
 
 // Set some simple variables used later in the page
-$baseurl             = $_SERVER['PHP_SELF'];
+$baseurl             = str_replace('index.php', '', $_SERVER['PHP_SELF']);
 $current             = getdate();
 $version             = $ob->getConfig('version');
 $version_date        = $ob->getConfig('version_date');
@@ -58,7 +58,7 @@ if ($ob->getConfig('installtables')) { include("include/install.php"); }
 
 // Get the session (if there is one)
 $session = $auth->getSessionCookie();
-
+/*
 if ($ob->getConfig('authtype') == "internal") {
   $BasicAuthInUse = false;
   if ($username = getPostValue('username') and $password = getPostValue('password')) {
@@ -83,7 +83,7 @@ if (! $username) {
   $auth->setSessionCookie("",$cookie_time_seconds);
   include("include/loginscreen.php"); 
 }
-
+*/
 // if 'logout' is set, run the logout functions and go back
 // to the login screen.
 if (getGetValue('logout')) { 
@@ -159,7 +159,7 @@ if (getGetValue('noupdate')) {
   <Script Language="JavaScript"> window.focus(); </Script>
 <?php } ?>
 
-<TITLE>OutBoard: <?php echo $ob->getConfig('board_title') ?></TITLE>
+<TITLE>In / Out: <?php echo $ob->getConfig('board_title') ?></TITLE>
 <?php include("include/stylesheet.php"); ?>
 </HEAD>
 <BODY>
@@ -319,40 +319,5 @@ while($row = $ob->getRow()) {
 </TABLE>
 </TD></TR>
 </TABLE>
-
-
-<TABLE BORDER=0 WIDTH="100%" CELLPADDING=1 CELLSPACING=0>
-  <TR>
-
-  <?php if (! $BasicAuthInUse) { ?> 
-    <TD class=small align=left width="1%">
-      <a href="<?php echo $baseurl ?>?logout=1">[Logout]</a>
-    </TD>
-  <?php } ?>
-
-  <?php if ($sched_url = $ob->getConfig('schedule_url')) { ?>
-    <TD class=small align=center>
-     <a href="javascript:void(0)" 
-	onClick="openWindow('scheduleWindow','<?php echo $sched_url ?>',550,600)"><?php echo $ob->getConfig('schedule_name'); ?></a>
-    </TD>
-  <?php } ?>
-
-  <TD class=small align=center>
-  <?php include("include/about.php"); ?>
-  </TD>
-
-  <TD class=small align=left width="1%">
-      <a href="timeclock.php" target=_blank>[Report]</a>
-  </TD>
-
-  <?php if ($ob->isAdmin()) { ?>
-  <TD class=small align=left width="1%">
-      <a href="<?php echo $baseurl ?>?adminscreen=1">[Admin]</a>
-  </TD>
-  <?php } ?>
-
-  </TR>
-</TABLE>
-
 </BODY>
 </HTML>
