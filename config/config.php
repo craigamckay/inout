@@ -58,7 +58,7 @@ $this->config['temp_dir'] = sys_get_temp_dir().DIRECTORY_SEPARATOR;
 $this->config['allow_change'] = "all";
 
 // The Title of the board
-$this->config['board_title'] = "Your Department Name";
+$this->config['board_title'] = "Digital Team";
 
 // Where to send the launch window after it opens the outboard
 $this->config['advertisement'] = "http://outboard.sourceforge.net/";
@@ -152,4 +152,4 @@ $this->config['version'] = "2.2.8";            // Don't change this
 $this->config['version_date'] = "2020";      // Don't change this
 
 // The name of the main outboard program
-$this->config['progname'] = "outboard.php";  // Don't change this
+$this->config['progname'] = "index.php";  // Don't change this
