@@ -1,18 +1,5 @@
 <?php
 
-// outboard.php
-//
-// This is the main PHP script that shows the OutBoard interface.
-//
-// 2007-02-16, richardf - 2.2.4 - added custom time for cookies
-// 2006-06-15, richardf - 2.2.3 - added zebra striping option
-// 2005-05-16, richardf - 2.2.2 - moved rowcount inside of if() 
-// 2005-02-19, richardf - 2.1 - added named anchors to position the page on updates
-// 2005-02-15, richardf - 2.0 - see CHANGES file
-// 2001-06-08, richardf - 1.3 - see CHANGES file
-// 2000-08-30, Richard F. Feuerriegel (richardf@acesag.auburn.edu)
-// 	- Initial creation
-
 require_once("lib/OutboardDatabase.php");
 require_once("lib/OutboardAuth.php");
 
@@ -197,7 +184,7 @@ if (getGetValue('noupdate')) {
 <TR><TH></TH><TH></TH><TH colspan=10>Will return by this time:</TH><TH></TH><TH></TH></TR>
 
 <?php $header = "<TR><TH>Name</TH><TH>In</TH>
-<TH>8</TH><TH>9</TH><TH>10</TH><TH>11</TH><TH>12</TH><TH>1</TH><TH>2</TH><TH>3</TH>
+<TH>7</TH><TH>8</TH><TH>9</TH><TH>10</TH><TH>11</TH><TH>12</TH><TH>1</TH><TH>2</TH><TH>3</TH>
 <TH>4</TH><TH>5</TH><TH>Out</TH><TH>Remarks</TH></TR>";
 
 //echo $header;
@@ -240,7 +227,7 @@ while($row = $ob->getRow()) {
 	     $out= "<img src=$image_dir/$empty_image>"; 
        }
      }
-	 for ($i = 8; $i <= 17; $i++) {
+	 for ($i = 7; $i <= 17; $i++) {
 		 if ( $datetime['hours'] == $i ) { 
 		   $back[$i] = "<img src=$image_dir/$dot_image $alt>"; 
 		   if ($update && $isChangeable) {
@@ -273,6 +260,7 @@ while($row = $ob->getRow()) {
      echo "<TR class=norm>";
      echo "<TD WIDTH=15% $user_bg><A class=\"nobr\" name=\"".$row['userid']."\">".$row['name']."</A></TD>";
      echo "<TD WIDTH=1% $user_bg>$in</TD>";
+     echo "<TD WIDTH=1% $user_bg>".$back['7']."</TD>";
      echo "<TD WIDTH=1% $user_bg>".$back['8']."</TD>";
      echo "<TD WIDTH=1% $user_bg>".$back['9']."</TD>";
      echo "<TD WIDTH=1% $user_bg>".$back['10']."</TD>";

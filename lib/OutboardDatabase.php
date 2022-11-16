@@ -210,7 +210,7 @@ public function getData() {
   $table = $this->getConfig('table');
   $stmt = "select rowid, userid, name, options, unix_timestamp(back) as back, "
          ."remarks, last_change, date_format(timestamp, '%m/%d, %l:%i %p') as timestamp "
-         ."from $table order by name";
+         ."from $table order by rowid";
   if ($this->_query($stmt)) {
     return true;
   } else {

@@ -119,9 +119,9 @@ $this->config['td_lines']    = "#E9E9E9"; // color of the "lines" in the outboar
 $this->config['link_text']   = "#000000"; // color of the link text (in the remarks)
 
 // Font faces and sizes (bff = base font face, bfs = base font size)
-$this->config['windows_font_family'] = "Arial, Helvetica, sans-serif";
+$this->config['windows_font_family'] = "Segoe UI, Arial, Helvetica, sans-serif";
 $this->config['unix_font_family']    = "Helvetica, Arial, sans-serif";
-$this->config['windows_bfs']         = 10;
+$this->config['windows_bfs']         = 14;
 $this->config['unix_bfs']            = 12;    
 
 // The maximum "length" of the visible portion of remarks before the arrow
